@@ -19,13 +19,18 @@ def say(text):
     mixer.music.play()
 
 
+def command_action(tentry):
+    text = tentry.get()
+    say(text)
+
+
 if __name__ == '__main__':
     root = tk.Tk()
     root.wm_title('!!')
     root.wm_resizable(0, 0)
     mixer.init()
     entry = tk.Entry(root)
-    btn = tk.Button(root, text='Say', command=lambda: say(entry.get()))
+    btn = tk.Button(root, text='Say', command=lambda: command_action(entry))
     entry.pack(side='left')
     btn.pack(side='right')
     root.mainloop()
